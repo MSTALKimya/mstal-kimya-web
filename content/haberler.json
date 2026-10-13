@@ -1,14 +1,6 @@
 {
   "liste": [
     {
-      "tarih": "2026-10-13",
-      "kategori": "Haber",
-      "sabitle": false,
-      "baslik": "Deneme Duyurusu ",
-      "yazar": "Örnek Öğretmen",
-      "metin": "İlk deneme duyurumuz ektedir"
-    },
-    {
       "metin": "Örnek duyuru: 1. dönem yazılı sınav tarihleri aşağıdaki gibidir.\n\n- **Kimyasal Analiz** – 3 Kasım 2026\n- **Laboratuvar Teknikleri** – 5 Kasım 2026\n- **Organik Kimya** – 7 Kasım 2026\n\nSınav takvimi PDF olarak da eklenebilir.",
       "yazar": "Örnek Öğretmen",
       "kapak": "",
