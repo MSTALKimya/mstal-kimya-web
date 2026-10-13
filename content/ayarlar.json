@@ -13,5 +13,36 @@
   "eposta": "",
   "instagram": "",
   "youtube": "",
-  "okulWebSitesi": ""
+  "okulWebSitesi": "",
+  "kurulusYili": "",
+  "tanitimGorsel": "",
+  "videoBaslik": "Bölümümüzü yakından tanıyın",
+  "videoAciklama": "Laboratuvarlarımızı, atölyelerimizi ve öğrencilerimizin çalışmalarını tanıtım videomuzda izleyebilirsiniz.",
+  "ctaBaslik": "Geleceğini laboratuvarda şekillendir!",
+  "ctaMetin": "Bölümümüz hakkında bilgi almak ya da okulumuzu ziyaret etmek için bizimle iletişime geçin.",
+  "facebook": "",
+  "x": "",
+  "haritaKonum": "",
+  "neden": [
+    {
+      "ikon": "flask",
+      "baslik": "Uygulamalı Eğitim",
+      "aciklama": "Derslerin büyük bölümü donanımlı laboratuvar ve atölyelerimizde uygulamalı olarak işlenir."
+    },
+    {
+      "ikon": "drop",
+      "baslik": "Üreterek Öğrenme",
+      "aciklama": "Öğrencilerimiz sabun, temizlik ve kozmetik ürünlerini kendi elleriyle üretir."
+    },
+    {
+      "ikon": "briefcase",
+      "baslik": "Geniş İş Olanakları",
+      "aciklama": "İlaç, boya, gıda, kozmetik ve kalite kontrol laboratuvarlarında çalışma imkânı."
+    },
+    {
+      "ikon": "grad",
+      "baslik": "Üniversiteye Hazırlık",
+      "aciklama": "Alanla ilgili ön lisans programlarına sınavsız / ek puanla geçiş imkânı."
+    }
+  ]
 }

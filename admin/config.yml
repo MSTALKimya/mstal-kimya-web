@@ -18,29 +18,108 @@ media_folder: images/uploads
 public_folder: /images/uploads
 
 collections:
-  - name: duyurular
-    label: "📢 Duyurular"
+  # ------------------------------------------------------------
+  - name: haberler
+    label: "📢 Haberler & Duyurular"
     editor: { preview: false }
     files:
-      - name: duyurular
-        label: "Duyurular"
-        file: content/duyurular.json
+      - name: haberler
+        label: "Haberler & Duyurular"
+        file: content/haberler.json
         fields:
-          - label: "Duyurular"
+          - label: "Haberler"
             name: liste
             widget: list
             add_to_top: true
-            label_singular: "Duyuru"
+            collapsed: true
+            label_singular: "Haber / Duyuru"
             summary: "{{fields.tarih}} — {{fields.baslik}}"
             fields:
               - { label: "Başlık", name: baslik, widget: string }
               - { label: "Tarih", name: tarih, widget: datetime, format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false, default: "{{now}}" }
-              - { label: "Kategori", name: kategori, widget: select, options: ["Genel", "Sınav Takvimi", "Etkinlik", "Önemli"], default: "Genel" }
-              - { label: "En üste sabitle", name: sabitle, widget: boolean, default: false, required: false }
-              - { label: "Duyuru metni", name: metin, widget: markdown, required: false }
-              - { label: "Görsel (isteğe bağlı)", name: gorsel, widget: image, required: false }
-              - { label: "Ek dosya – PDF vb. (isteğe bağlı)", name: ek, widget: file, required: false }
+              - { label: "Kategori", name: kategori, widget: select, default: "Haber", options: ["Haber", "Duyuru", "Sınav Takvimi", "Etkinlik", "Başarı", "Kariyer & İş İlanı"] }
+              - { label: "Yazan öğretmen", name: yazar, widget: relation, collection: kadro, file: kadro, search_fields: ["liste.*.adSoyad"], value_field: "liste.*.adSoyad", display_fields: ["liste.*.adSoyad"], required: false }
+              - { label: "📌 Ana sayfada duyuru bandında ve en üstte göster", name: sabitle, widget: boolean, default: false, required: false }
+              - { label: "Kapak fotoğrafı", name: kapak, widget: image, required: false, hint: "Boş bırakılırsa galerideki ilk fotoğraf kapak olur." }
+              - { label: "Haber metni", name: metin, widget: markdown, required: false }
+              - label: "Fotoğraf galerisi"
+                name: galeri
+                widget: list
+                required: false
+                label_singular: "Fotoğraf"
+                hint: "İstediğiniz kadar fotoğraf ekleyebilirsiniz. Bu fotoğraflar 'Resim & Video' sayfasında albüm olarak da görünür."
+                field: { label: "Fotoğraf", name: foto, widget: image }
+              - { label: "YouTube video linki", name: videoUrl, widget: string, required: false }
+              - label: "Ek dosyalar (PDF, sınav takvimi vb.)"
+                name: ekler
+                widget: list
+                required: false
+                label_singular: "Ek"
+                summary: "{{fields.baslik}}"
+                fields:
+                  - { label: "Dosya adı", name: baslik, widget: string }
+                  - { label: "Dosya", name: dosya, widget: file }
 
+  # ------------------------------------------------------------
+  - name: dersler
+    label: "📚 Dersler"
+    editor: { preview: false }
+    files:
+      - name: dersler
+        label: "Dersler ve Ders Materyalleri"
+        file: content/dersler.json
+        fields:
+          - { label: "Sayfa açıklaması", name: aciklama, widget: string, required: false }
+          - label: "Dersler"
+            name: liste
+            widget: list
+            collapsed: true
+            label_singular: "Ders"
+            summary: "{{fields.sinif}}. Sınıf — {{fields.ad}}"
+            fields:
+              - { label: "Sınıf", name: sinif, widget: select, options: ["9", "10", "11", "12"] }
+              - { label: "Ders adı", name: ad, widget: string, hint: "Ders adı değişirse dersin linki de değişir." }
+              - { label: "Menüdeki sırası", name: sira, widget: number, value_type: int, default: 1, required: false }
+              - { label: "Kısa açıklama (kartta görünür)", name: ozet, widget: string, required: false }
+              - { label: "Haftalık ders saati", name: haftalikSaat, widget: string, required: false }
+              - { label: "Kapak fotoğrafı", name: kapak, widget: image, required: false }
+              - { label: "Dersin öğretmenleri", name: ogretmenler, widget: relation, collection: kadro, file: kadro, search_fields: ["liste.*.adSoyad"], value_field: "liste.*.adSoyad", display_fields: ["liste.*.adSoyad"], multiple: true, required: false }
+              - { label: "Ders açıklaması", name: aciklama, widget: markdown, required: false }
+              - label: "Ders materyalleri (notlar, kitaplar, videolar)"
+                name: materyaller
+                widget: list
+                required: false
+                label_singular: "Materyal"
+                summary: "{{fields.unite}} · {{fields.baslik}}"
+                fields:
+                  - { label: "Öğrenme birimi / ünite", name: unite, widget: string, required: false, hint: "Aynı ünite adını yazdığınız materyaller tek başlık altında toplanır." }
+                  - { label: "Başlık", name: baslik, widget: string }
+                  - { label: "Tür", name: tur, widget: select, default: "Doküman", options: ["Doküman", "Ders Kitabı", "Sunum", "Video", "Bağlantı"] }
+                  - { label: "Dosya (PDF, Word, sunum)", name: dosya, widget: file, required: false }
+                  - { label: "veya Link (YouTube, Drive, EBA vb.)", name: link, widget: string, required: false }
+                  - { label: "Kısa not", name: aciklama, widget: string, required: false }
+
+  - name: dersprogrami
+    label: "📅 Ders Programı"
+    editor: { preview: false }
+    files:
+      - name: dersprogrami
+        label: "Ders Programı"
+        file: content/ders-programi.json
+        fields:
+          - { label: "Dönem", name: donem, widget: string, required: false }
+          - { label: "Genel açıklama", name: aciklama, widget: markdown, required: false }
+          - label: "Programlar"
+            name: liste
+            widget: list
+            label_singular: "Program"
+            summary: "{{fields.baslik}}"
+            fields:
+              - { label: "Başlık", name: baslik, widget: string, hint: "Ör. 10-A Sınıfı Ders Programı" }
+              - { label: "Not", name: not, widget: markdown, required: false }
+              - { label: "Dosya (resim veya PDF)", name: dosya, widget: file, required: false }
+
+  # ------------------------------------------------------------
   - name: urunler
     label: "🧼 Ürünlerimiz"
     editor: { preview: false }
@@ -53,6 +132,7 @@ collections:
           - label: "Ürünler"
             name: liste
             widget: list
+            collapsed: true
             label_singular: "Ürün"
             summary: "{{fields.ad}}"
             fields:
@@ -62,9 +142,50 @@ collections:
               - { label: "Kısa açıklama (kartta görünür)", name: kisaAciklama, widget: string }
               - { label: "Detaylı açıklama", name: aciklama, widget: markdown, required: false }
               - { label: "İçindekiler", name: icindekiler, widget: string, required: false }
+              - { label: "Kullanım alanı", name: kullanim, widget: string, required: false }
               - { label: "Üreten (sınıf / öğrenciler)", name: ureten, widget: string, required: false }
               - { label: "Ana sayfada göster", name: oneCikar, widget: boolean, default: false, required: false }
 
+  # ------------------------------------------------------------
+  - name: medya
+    label: "🖼️ Resim & Video"
+    editor: { preview: false }
+    files:
+      - name: medya
+        label: "Fotoğraf Albümleri ve Videolar"
+        file: content/medya.json
+        fields:
+          - label: "Fotoğraf albümleri"
+            name: albumler
+            widget: list
+            add_to_top: true
+            collapsed: true
+            required: false
+            label_singular: "Albüm"
+            summary: "{{fields.baslik}}"
+            hint: "Not: Haberlere eklediğiniz fotoğraf galerileri burada otomatik olarak albüm olarak görünür."
+            fields:
+              - { label: "Albüm adı", name: baslik, widget: string }
+              - { label: "Tarih", name: tarih, widget: datetime, format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false, default: "{{now}}", required: false }
+              - { label: "Açıklama", name: aciklama, widget: string, required: false }
+              - label: "Fotoğraflar"
+                name: fotograflar
+                widget: list
+                label_singular: "Fotoğraf"
+                field: { label: "Fotoğraf", name: foto, widget: image }
+          - label: "Videolar"
+            name: videolar
+            widget: list
+            add_to_top: true
+            required: false
+            label_singular: "Video"
+            summary: "{{fields.baslik}}"
+            fields:
+              - { label: "Video adı", name: baslik, widget: string }
+              - { label: "YouTube linki", name: url, widget: string }
+              - { label: "Açıklama", name: aciklama, widget: string, required: false }
+
+  # ------------------------------------------------------------
   - name: kadro
     label: "👩‍🏫 Kadromuz"
     editor: { preview: false }
@@ -73,6 +194,7 @@ collections:
         label: "Öğretmenler"
         file: content/kadro.json
         fields:
+          - { label: "Sayfa açıklaması", name: aciklama, widget: string, required: false }
           - label: "Öğretmenler"
             name: liste
             widget: list
@@ -99,6 +221,7 @@ collections:
             name: liste
             widget: list
             add_to_top: true
+            collapsed: true
             label_singular: "Mezuniyet yılı"
             summary: "{{fields.yil}} Mezunları"
             fields:
@@ -115,44 +238,46 @@ collections:
                   - { label: "Ad Soyad", name: adSoyad, widget: string }
                   - { label: "Şu an (üniversite / iş yeri)", name: simdi, widget: string, required: false }
 
-  - name: dersprogrami
-    label: "📅 Ders Programı"
+  # ------------------------------------------------------------
+  - name: sayfalar
+    label: "📄 Ek Sayfalar"
     editor: { preview: false }
     files:
-      - name: dersprogrami
-        label: "Ders Programı"
-        file: content/ders-programi.json
+      - name: sayfalar
+        label: "Ek Sayfalar (Kariyer, Neden Biz vb.)"
+        file: content/sayfalar.json
         fields:
-          - { label: "Dönem", name: donem, widget: string, required: false }
-          - { label: "Genel açıklama", name: aciklama, widget: markdown, required: false }
-          - label: "Programlar"
+          - label: "Sayfalar"
             name: liste
             widget: list
-            label_singular: "Program"
-            summary: "{{fields.baslik}}"
+            collapsed: true
+            label_singular: "Sayfa"
+            summary: "{{fields.baslik}} ({{fields.menu}})"
             fields:
-              - { label: "Başlık", name: baslik, widget: string, hint: "Ör. 10-A Sınıfı Ders Programı" }
-              - { label: "Not", name: not, widget: markdown, required: false }
-              - { label: "Dosya (resim veya PDF)", name: dosya, widget: file, required: false }
+              - { label: "Sayfa başlığı", name: baslik, widget: string, hint: "Başlık değişirse sayfanın linki de değişir." }
+              - { label: "Menüde nerede görünsün?", name: menu, widget: select, default: "Kurumsal", options: ["Kurumsal", "Ana menü", "Menüde gösterme"] }
+              - { label: "Sırası", name: sira, widget: number, value_type: int, default: 1, required: false }
+              - { label: "Kısa açıklama (başlığın altında)", name: ozet, widget: string, required: false }
+              - { label: "Kapak fotoğrafı", name: kapak, widget: image, required: false }
+              - { label: "Sayfa içeriği", name: icerik, widget: markdown }
+              - { label: "YouTube video linki", name: videoUrl, widget: string, required: false }
+              - label: "Fotoğraflar"
+                name: galeri
+                widget: list
+                required: false
+                label_singular: "Fotoğraf"
+                field: { label: "Fotoğraf", name: foto, widget: image }
+              - label: "Dosyalar"
+                name: ekler
+                widget: list
+                required: false
+                label_singular: "Dosya"
+                summary: "{{fields.baslik}}"
+                fields:
+                  - { label: "Dosya adı", name: baslik, widget: string }
+                  - { label: "Dosya", name: dosya, widget: file }
 
-  - name: galeri
-    label: "🖼️ Fotoğraf Galerisi"
-    editor: { preview: false }
-    files:
-      - name: galeri
-        label: "Galeri"
-        file: content/galeri.json
-        fields:
-          - label: "Fotoğraflar"
-            name: liste
-            widget: list
-            add_to_top: true
-            label_singular: "Fotoğraf"
-            summary: "{{fields.aciklama}}"
-            fields:
-              - { label: "Fotoğraf", name: gorsel, widget: image }
-              - { label: "Açıklama", name: aciklama, widget: string, required: false }
-
+  # ------------------------------------------------------------
   - name: ayarlar
     label: "🏫 Okul Bilgileri"
     editor: { preview: false }
@@ -164,15 +289,34 @@ collections:
           - { label: "Okul adı", name: okulAdi, widget: string }
           - { label: "Bölüm adı", name: bolumAdi, widget: string }
           - { label: "Slogan", name: slogan, widget: string, required: false }
+          - { label: "Kuruluş yılı", name: kurulusYili, widget: string, required: false }
           - { label: "Okul amblemi (logo)", name: logo, widget: image, required: false }
-          - { label: "Ana sayfa arka plan fotoğrafı", name: heroGorsel, widget: image, required: false }
+          - { label: "Ana sayfa büyük arka plan fotoğrafı", name: heroGorsel, widget: image, required: false, hint: "Yatay, yüksek çözünürlüklü bir okul / laboratuvar fotoğrafı önerilir." }
+          - { label: "Tanıtım fotoğrafı ('Biz Kimiz' yanında)", name: tanitimGorsel, widget: image, required: false }
           - { label: "Kısaca Biz Kimiz", name: kisacaBizKimiz, widget: markdown }
           - { label: "Bölümümüz hakkında", name: bolumHakkinda, widget: markdown }
           - { label: "Tarihçe", name: tarihce, widget: markdown }
-          - { label: "Tanıtım videosu (YouTube linki)", name: videoUrl, widget: string, required: false, hint: "YouTube'a yüklenen videonun linkini yapıştırın" }
+          - label: "Neden Kimya Teknolojisi? (ana sayfa kartları)"
+            name: neden
+            widget: list
+            required: false
+            label_singular: "Kart"
+            summary: "{{fields.baslik}}"
+            fields:
+              - { label: "İkon", name: ikon, widget: select, default: "flask", options: [{label: "Deney şişesi", value: flask}, {label: "Deney tüpü", value: tube}, {label: "Damla", value: drop}, {label: "Çanta (iş)", value: briefcase}, {label: "Kep (mezuniyet)", value: grad}, {label: "Ödül", value: award}, {label: "Kitap", value: book}, {label: "İnsanlar", value: users}, {label: "Yaprak", value: leaf}, {label: "Kalkan", value: shield}] }
+              - { label: "Başlık", name: baslik, widget: string }
+              - { label: "Açıklama", name: aciklama, widget: text }
+          - { label: "Tanıtım videosu (YouTube linki)", name: videoUrl, widget: string, required: false }
+          - { label: "Video bölümü başlığı", name: videoBaslik, widget: string, required: false }
+          - { label: "Video bölümü açıklaması", name: videoAciklama, widget: text, required: false }
+          - { label: "Alt çağrı başlığı", name: ctaBaslik, widget: string, required: false }
+          - { label: "Alt çağrı metni", name: ctaMetin, widget: string, required: false }
           - { label: "Adres", name: adres, widget: string, required: false }
+          - { label: "Harita konumu", name: haritaKonum, widget: string, required: false, hint: "Boş bırakılırsa okul adı + adres ile harita gösterilir." }
           - { label: "Telefon", name: telefon, widget: string, required: false }
           - { label: "E-posta", name: eposta, widget: string, required: false }
           - { label: "Instagram linki", name: instagram, widget: string, required: false }
           - { label: "YouTube kanal linki", name: youtube, widget: string, required: false }
+          - { label: "Facebook linki", name: facebook, widget: string, required: false }
+          - { label: "X (Twitter) linki", name: x, widget: string, required: false }
           - { label: "Okulun ana web sitesi", name: okulWebSitesi, widget: string, required: false }

@@ -1,0 +1,101 @@
+{
+  "aciklama": "Kimya Teknolojisi Alanı derslerimiz, ders notları, kitaplar ve uygulama föyleri",
+  "liste": [
+    {
+      "sinif": "9",
+      "ad": "Mesleki Gelişim Atölyesi",
+      "sira": 1,
+      "ozet": "Meslek ahlakı, iş sağlığı ve güvenliği, temel mesleki beceriler.",
+      "haftalikSaat": "",
+      "kapak": "",
+      "ogretmenler": [],
+      "aciklama": "Örnek ders açıklaması: dersin amacı, işlenen konular ve kazanımlar buraya yazılır.",
+      "materyaller": [
+        {
+          "unite": "1. Öğrenme Birimi: İş Sağlığı ve Güvenliği",
+          "baslik": "Laboratuvar güvenlik kuralları (örnek)",
+          "tur": "Doküman",
+          "dosya": "",
+          "link": "",
+          "aciklama": ""
+        }
+      ]
+    },
+    {
+      "sinif": "10",
+      "ad": "Laboratuvar Güvenliği ve Temel İşlemler",
+      "sira": 1,
+      "ozet": "Laboratuvar araç gereçleri, çözelti hazırlama, temel laboratuvar işlemleri.",
+      "haftalikSaat": "",
+      "kapak": "",
+      "ogretmenler": [
+        "Örnek Öğretmen"
+      ],
+      "aciklama": "Örnek ders açıklaması.",
+      "materyaller": [
+        {
+          "unite": "1. Öğrenme Birimi: Laboratuvar Araç Gereçleri",
+          "baslik": "Ders notu (örnek)",
+          "tur": "Doküman",
+          "dosya": "",
+          "link": "",
+          "aciklama": ""
+        },
+        {
+          "unite": "1. Öğrenme Birimi: Laboratuvar Araç Gereçleri",
+          "baslik": "Konu anlatım videosu (örnek)",
+          "tur": "Video",
+          "dosya": "",
+          "link": "",
+          "aciklama": ""
+        }
+      ]
+    },
+    {
+      "sinif": "10",
+      "ad": "Temel Kimya Uygulamaları",
+      "sira": 2,
+      "ozet": "Kimyasal tepkimeler, asit-baz ve temel kimya hesaplamaları.",
+      "haftalikSaat": "",
+      "kapak": "",
+      "ogretmenler": [],
+      "aciklama": "Örnek ders açıklaması.",
+      "materyaller": []
+    },
+    {
+      "sinif": "11",
+      "ad": "Analitik Kimya",
+      "sira": 1,
+      "ozet": "Nitel ve nicel analiz yöntemleri, titrasyon, gravimetri.",
+      "haftalikSaat": "",
+      "kapak": "",
+      "ogretmenler": [],
+      "aciklama": "Örnek ders açıklaması.",
+      "materyaller": []
+    },
+    {
+      "sinif": "11",
+      "ad": "Kimyasal Üretim Uygulamaları",
+      "sira": 2,
+      "ozet": "Sabun, deterjan ve kozmetik ürünlerin üretimi.",
+      "haftalikSaat": "",
+      "kapak": "",
+      "ogretmenler": [
+        "Örnek Öğretmen 2"
+      ],
+      "aciklama": "Örnek ders açıklaması.",
+      "materyaller": []
+    },
+    {
+      "sinif": "12",
+      "ad": "Enstrümantal Analiz",
+      "sira": 1,
+      "ozet": "Spektroskopi, kromatografi ve cihazlı analiz yöntemleri.",
+      "haftalikSaat": "",
+      "kapak": "",
+      "ogretmenler": [],
+      "aciklama": "Örnek ders açıklaması.",
+      "materyaller": []
+    }
+  ]
+}
