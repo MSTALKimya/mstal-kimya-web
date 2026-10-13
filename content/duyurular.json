@@ -1,0 +1,22 @@
+{
+  "liste": [
+    {
+      "baslik": "1. Dönem Ortak Sınav Takvimi Yayınlandı",
+      "tarih": "2026-10-13",
+      "kategori": "Sınav Takvimi",
+      "sabitle": true,
+      "metin": "Örnek duyuru: 1. dönem yazılı sınav tarihleri aşağıdaki gibidir.\n\n- **Kimyasal Analiz** – 3 Kasım 2026\n- **Laboratuvar Teknikleri** – 5 Kasım 2026\n- **Organik Kimya** – 7 Kasım 2026\n\nSınav takvimi PDF olarak da eklenebilir.",
+      "gorsel": "",
+      "ek": ""
+    },
+    {
+      "baslik": "Web Sitemiz Yayında!",
+      "tarih": "2026-10-12",
+      "kategori": "Genel",
+      "sabitle": false,
+      "metin": "Kimya Teknolojisi Alanı web sitemiz yayına girdi. Duyurularımızı, ürünlerimizi ve etkinliklerimizi buradan takip edebilirsiniz.",
+      "gorsel": "",
+      "ek": ""
+    }
+  ]
+}

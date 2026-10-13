@@ -1,0 +1,178 @@
+# Yönetim paneli ayarları (Decap CMS)
+locale: tr
+logo_url: /images/logo.svg
+
+backend:
+  name: github
+  repo: GITHUB_KULLANICI_ADI/mstal-kimya-web   # canlıya alırken güncellenecek
+  branch: main
+  commit_messages:
+    create: "{{collection}} eklendi: {{slug}}"
+    update: "{{collection}} güncellendi: {{slug}}"
+    uploadMedia: "Dosya yüklendi: {{path}}"
+
+# Bilgisayarda test için (npx decap-server ile)
+local_backend: true
+
+media_folder: images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: duyurular
+    label: "📢 Duyurular"
+    editor: { preview: false }
+    files:
+      - name: duyurular
+        label: "Duyurular"
+        file: content/duyurular.json
+        fields:
+          - label: "Duyurular"
+            name: liste
+            widget: list
+            add_to_top: true
+            label_singular: "Duyuru"
+            summary: "{{fields.tarih}} — {{fields.baslik}}"
+            fields:
+              - { label: "Başlık", name: baslik, widget: string }
+              - { label: "Tarih", name: tarih, widget: datetime, format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false, default: "{{now}}" }
+              - { label: "Kategori", name: kategori, widget: select, options: ["Genel", "Sınav Takvimi", "Etkinlik", "Önemli"], default: "Genel" }
+              - { label: "En üste sabitle", name: sabitle, widget: boolean, default: false, required: false }
+              - { label: "Duyuru metni", name: metin, widget: markdown, required: false }
+              - { label: "Görsel (isteğe bağlı)", name: gorsel, widget: image, required: false }
+              - { label: "Ek dosya – PDF vb. (isteğe bağlı)", name: ek, widget: file, required: false }
+
+  - name: urunler
+    label: "🧼 Ürünlerimiz"
+    editor: { preview: false }
+    files:
+      - name: urunler
+        label: "Ürünler"
+        file: content/urunler.json
+        fields:
+          - { label: "Sayfa açıklaması", name: aciklama, widget: string, required: false }
+          - label: "Ürünler"
+            name: liste
+            widget: list
+            label_singular: "Ürün"
+            summary: "{{fields.ad}}"
+            fields:
+              - { label: "Ürün adı", name: ad, widget: string }
+              - { label: "Kategori", name: kategori, widget: select, options: ["Sabun", "Temizlik", "Kozmetik", "Diğer"], default: "Sabun" }
+              - { label: "Fotoğraf", name: gorsel, widget: image, required: false }
+              - { label: "Kısa açıklama (kartta görünür)", name: kisaAciklama, widget: string }
+              - { label: "Detaylı açıklama", name: aciklama, widget: markdown, required: false }
+              - { label: "İçindekiler", name: icindekiler, widget: string, required: false }
+              - { label: "Üreten (sınıf / öğrenciler)", name: ureten, widget: string, required: false }
+              - { label: "Ana sayfada göster", name: oneCikar, widget: boolean, default: false, required: false }
+
+  - name: kadro
+    label: "👩‍🏫 Kadromuz"
+    editor: { preview: false }
+    files:
+      - name: kadro
+        label: "Öğretmenler"
+        file: content/kadro.json
+        fields:
+          - label: "Öğretmenler"
+            name: liste
+            widget: list
+            label_singular: "Öğretmen"
+            summary: "{{fields.adSoyad}} – {{fields.unvan}}"
+            fields:
+              - { label: "Ad Soyad", name: adSoyad, widget: string }
+              - { label: "Unvan", name: unvan, widget: string, hint: "Ör. Alan Şefi, Alan Öğretmeni" }
+              - { label: "Branş", name: brans, widget: string, required: false }
+              - { label: "Fotoğraf", name: fotograf, widget: image, required: false }
+              - { label: "Kısa tanıtım", name: hakkinda, widget: text, required: false }
+              - { label: "E-posta", name: eposta, widget: string, required: false }
+
+  - name: mezunlar
+    label: "🎓 Mezunlarımız"
+    editor: { preview: false }
+    files:
+      - name: mezunlar
+        label: "Mezunlar"
+        file: content/mezunlar.json
+        fields:
+          - { label: "Sayfa açıklaması", name: aciklama, widget: string, required: false }
+          - label: "Mezuniyet yılları"
+            name: liste
+            widget: list
+            add_to_top: true
+            label_singular: "Mezuniyet yılı"
+            summary: "{{fields.yil}} Mezunları"
+            fields:
+              - { label: "Yıl", name: yil, widget: string }
+              - { label: "Açıklama", name: aciklama, widget: markdown, required: false }
+              - { label: "Toplu fotoğraf", name: fotograf, widget: image, required: false }
+              - label: "Mezunlar"
+                name: kisiler
+                widget: list
+                required: false
+                label_singular: "Mezun"
+                summary: "{{fields.adSoyad}}"
+                fields:
+                  - { label: "Ad Soyad", name: adSoyad, widget: string }
+                  - { label: "Şu an (üniversite / iş yeri)", name: simdi, widget: string, required: false }
+
+  - name: dersprogrami
+    label: "📅 Ders Programı"
+    editor: { preview: false }
+    files:
+      - name: dersprogrami
+        label: "Ders Programı"
+        file: content/ders-programi.json
+        fields:
+          - { label: "Dönem", name: donem, widget: string, required: false }
+          - { label: "Genel açıklama", name: aciklama, widget: markdown, required: false }
+          - label: "Programlar"
+            name: liste
+            widget: list
+            label_singular: "Program"
+            summary: "{{fields.baslik}}"
+            fields:
+              - { label: "Başlık", name: baslik, widget: string, hint: "Ör. 10-A Sınıfı Ders Programı" }
+              - { label: "Not", name: not, widget: markdown, required: false }
+              - { label: "Dosya (resim veya PDF)", name: dosya, widget: file, required: false }
+
+  - name: galeri
+    label: "🖼️ Fotoğraf Galerisi"
+    editor: { preview: false }
+    files:
+      - name: galeri
+        label: "Galeri"
+        file: content/galeri.json
+        fields:
+          - label: "Fotoğraflar"
+            name: liste
+            widget: list
+            add_to_top: true
+            label_singular: "Fotoğraf"
+            summary: "{{fields.aciklama}}"
+            fields:
+              - { label: "Fotoğraf", name: gorsel, widget: image }
+              - { label: "Açıklama", name: aciklama, widget: string, required: false }
+
+  - name: ayarlar
+    label: "🏫 Okul Bilgileri"
+    editor: { preview: false }
+    files:
+      - name: ayarlar
+        label: "Okul ve Bölüm Bilgileri"
+        file: content/ayarlar.json
+        fields:
+          - { label: "Okul adı", name: okulAdi, widget: string }
+          - { label: "Bölüm adı", name: bolumAdi, widget: string }
+          - { label: "Slogan", name: slogan, widget: string, required: false }
+          - { label: "Okul amblemi (logo)", name: logo, widget: image, required: false }
+          - { label: "Ana sayfa arka plan fotoğrafı", name: heroGorsel, widget: image, required: false }
+          - { label: "Kısaca Biz Kimiz", name: kisacaBizKimiz, widget: markdown }
+          - { label: "Bölümümüz hakkında", name: bolumHakkinda, widget: markdown }
+          - { label: "Tarihçe", name: tarihce, widget: markdown }
+          - { label: "Tanıtım videosu (YouTube linki)", name: videoUrl, widget: string, required: false, hint: "YouTube'a yüklenen videonun linkini yapıştırın" }
+          - { label: "Adres", name: adres, widget: string, required: false }
+          - { label: "Telefon", name: telefon, widget: string, required: false }
+          - { label: "E-posta", name: eposta, widget: string, required: false }
+          - { label: "Instagram linki", name: instagram, widget: string, required: false }
+          - { label: "YouTube kanal linki", name: youtube, widget: string, required: false }
+          - { label: "Okulun ana web sitesi", name: okulWebSitesi, widget: string, required: false }

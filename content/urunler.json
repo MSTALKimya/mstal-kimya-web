@@ -1,0 +1,8 @@
+{
+  "aciklama": "Öğrencilerimizin atölye ve laboratuvarlarda ürettiği ürünler (satış amaçlı değildir).",
+  "liste": [
+    { "ad": "Zeytinyağlı Katı Sabun", "kategori": "Sabun", "kisaAciklama": "Doğal zeytinyağından soğuk yöntemle üretilmiş katı sabun.", "aciklama": "Örnek ürün açıklaması: üretim süreci, kullanım alanı ve öğrencilerin bu üründe kazandığı beceriler buraya yazılabilir.", "icindekiler": "Zeytinyağı, su, sodyum hidroksit", "ureten": "11. Sınıf öğrencileri", "gorsel": "", "oneCikar": true },
+    { "ad": "Sıvı El Sabunu", "kategori": "Temizlik", "kisaAciklama": "Okulumuzda kullanılan sıvı el sabunu.", "aciklama": "Örnek ürün açıklaması.", "icindekiler": "", "ureten": "", "gorsel": "", "oneCikar": true },
+    { "ad": "Kolonya", "kategori": "Kozmetik", "kisaAciklama": "80 derece limon kolonyası.", "aciklama": "Örnek ürün açıklaması.", "icindekiler": "", "ureten": "", "gorsel": "", "oneCikar": true }
+  ]
+}
