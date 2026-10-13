@@ -1,0 +1,11 @@
+// Cloudflare Workers ayarları: site dosyaları olduğu gibi yayınlanır,
+// /api/auth ve /api/callback adresleri yönetim paneli girişini sağlar (worker.js).
+{
+  "name": "mstal-kimya-web",
+  "main": "worker.js",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS"
+  }
+}
