@@ -1,52 +1,60 @@
 {
   "liste": [
     {
-      "baslik": "1. Dönem Ortak Sınav Takvimi Yayınlandı",
+      "tarih": "2026-10-13",
+      "kategori": "Haber",
+      "sabitle": false,
+      "baslik": "Deneme Duyurusu ",
+      "yazar": "Örnek Öğretmen",
+      "metin": "İlk deneme duyurumuz ektedir"
+    },
+    {
+      "metin": "Örnek duyuru: 1. dönem yazılı sınav tarihleri aşağıdaki gibidir.\n\n- **Kimyasal Analiz** – 3 Kasım 2026\n- **Laboratuvar Teknikleri** – 5 Kasım 2026\n- **Organik Kimya** – 7 Kasım 2026\n\nSınav takvimi PDF olarak da eklenebilir.",
+      "yazar": "Örnek Öğretmen",
+      "kapak": "",
       "tarih": "2026-10-13",
       "kategori": "Sınav Takvimi",
-      "sabitle": true,
-      "yazar": "Örnek Öğretmen",
-      "kapak": "",
-      "metin": "Örnek duyuru: 1. dönem yazılı sınav tarihleri aşağıdaki gibidir.\n\n- **Kimyasal Analiz** – 3 Kasım 2026\n- **Laboratuvar Teknikleri** – 5 Kasım 2026\n- **Organik Kimya** – 7 Kasım 2026\n\nSınav takvimi PDF olarak da eklenebilir.",
       "galeri": [],
+      "ekler": [],
       "videoUrl": "",
-      "ekler": []
+      "sabitle": true,
+      "baslik": "1. Dönem Ortak Sınav Takvimi Yayınlandı"
     },
     {
-      "baslik": "Web Sitemiz Yayında!",
+      "metin": "Kimya Teknolojisi Alanı web sitemiz yayına girdi. Duyurularımızı, ürünlerimizi ve etkinliklerimizi buradan takip edebilirsiniz.",
+      "yazar": "Örnek Öğretmen",
+      "kapak": "",
       "tarih": "2026-10-12",
       "kategori": "Duyuru",
-      "sabitle": false,
-      "yazar": "Örnek Öğretmen",
-      "kapak": "",
-      "metin": "Kimya Teknolojisi Alanı web sitemiz yayına girdi. Duyurularımızı, ürünlerimizi ve etkinliklerimizi buradan takip edebilirsiniz.",
       "galeri": [],
+      "ekler": [],
       "videoUrl": "",
-      "ekler": []
+      "sabitle": false,
+      "baslik": "Web Sitemiz Yayında!"
     },
     {
-      "baslik": "Öğrencilerimiz Atölyede Zeytinyağlı Sabun Üretti",
-      "tarih": "2026-10-08",
-      "kategori": "Etkinlik",
-      "sabitle": false,
+      "metin": "Örnek haber: 11. sınıf öğrencilerimiz Kimyasal Üretim dersi kapsamında soğuk yöntemle zeytinyağlı sabun üretti.\n\nBu tür haberlere **çok sayıda fotoğraf**, **YouTube videosu** ve **PDF eki** eklenebilir.",
       "yazar": "Örnek Öğretmen 2",
       "kapak": "",
+      "tarih": "2026-10-08",
+      "kategori": "Etkinlik",
       "galeri": [],
-      "videoUrl": "",
       "ekler": [],
-      "metin": "Örnek haber: 11. sınıf öğrencilerimiz Kimyasal Üretim dersi kapsamında soğuk yöntemle zeytinyağlı sabun üretti.\n\nBu tür haberlere **çok sayıda fotoğraf**, **YouTube videosu** ve **PDF eki** eklenebilir."
+      "videoUrl": "",
+      "sabitle": false,
+      "baslik": "Öğrencilerimiz Atölyede Zeytinyağlı Sabun Üretti"
     },
     {
-      "baslik": "Mezunlarımıza İş Fırsatı: Kalite Kontrol Laboratuvar Teknisyeni",
-      "tarih": "2026-09-30",
-      "kategori": "Kariyer & İş İlanı",
-      "sabitle": false,
+      "metin": "Örnek iş ilanı: Bölgemizdeki bir kozmetik firması, kimya teknolojisi alanından mezun olmuş / olacak laboratuvar teknisyenleri arıyor.\n\n- **Pozisyon:** Kalite Kontrol Laboratuvar Teknisyeni\n- **Başvuru:** Bölüm öğretmenlerimize başvurabilirsiniz.",
       "yazar": "Örnek Öğretmen",
       "kapak": "",
+      "tarih": "2026-09-30",
+      "kategori": "Kariyer & İş İlanı",
       "galeri": [],
-      "videoUrl": "",
       "ekler": [],
-      "metin": "Örnek iş ilanı: Bölgemizdeki bir kozmetik firması, kimya teknolojisi alanından mezun olmuş / olacak laboratuvar teknisyenleri arıyor.\n\n- **Pozisyon:** Kalite Kontrol Laboratuvar Teknisyeni\n- **Başvuru:** Bölüm öğretmenlerimize başvurabilirsiniz."
+      "videoUrl": "",
+      "sabitle": false,
+      "baslik": "Mezunlarımıza İş Fırsatı: Kalite Kontrol Laboratuvar Teknisyeni"
     }
   ]
 }
