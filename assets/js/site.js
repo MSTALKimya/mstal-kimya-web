@@ -189,7 +189,9 @@ function buildNav(s, courses, pages) {
 }
 
 function renderChrome(s, nav) {
-  const file = location.pathname.split("/").pop() || "index.html";
+  // Sunucu adresleri uzantısız gösterebilir (/haberler); menü eşleşmesi için .html eklenir.
+  const last = location.pathname.split("/").pop() || "index";
+  const file = last.includes(".") ? last : `${last}.html`;
   const here = file + location.search;
   const isActive = (item) =>
     item.href === here || item.href === file && !location.search ||
