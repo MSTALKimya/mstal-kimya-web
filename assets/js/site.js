@@ -114,13 +114,9 @@ const photosOf = (item) => (item.galeri || item.fotograflar || []).map((g) => (t
 const coverOf = (p) => p.kapak || p.gorsel || photosOf(p)[0] || "";
 const attachmentsOf = (p) => [...(p.ekler || []), ...(p.ek ? [{ baslik: "Ek dosya", dosya: p.ek }] : [])].filter((e) => e.dosya || e.link);
 
-// Netlify üzerinde fotoğraflar otomatik küçültülür (sayfa hızlı açılır).
-const IMG_CDN = location.protocol === "https:" && !/^(localhost|127\.)/.test(location.hostname);
-function imgSrc(path, w) {
-  if (!path) return "";
-  if (!IMG_CDN || !w || /^https?:/i.test(path) || /\.svg$/i.test(path)) return path;
-  const p = path.startsWith("/") ? path : "/" + path;
-  return `/.netlify/images?url=${encodeURIComponent(p)}&w=${w}&q=80`;
+// Fotoğraflar yüklenirken GitHub tarafından otomatik küçültülür (.github/workflows/fotograf-kucult.yml).
+function imgSrc(path) {
+  return path || "";
 }
 function img(path, alt = "", w = 800, attrs = "") {
   return `<img src="${esc(imgSrc(path, w))}" data-orig="${esc(path)}" alt="${esc(alt)}" loading="lazy" ${attrs} onerror="if(!this.dataset.f){this.dataset.f=1;this.src=this.dataset.orig}">`;

@@ -1,0 +1,7 @@
+# Cloudflare Pages: içerik ve panel dosyaları her zaman güncel okunsun
+/content/*
+  Cache-Control: no-cache
+/admin/*
+  Cache-Control: no-cache
+/images/uploads/*
+  Cache-Control: public, max-age=604800

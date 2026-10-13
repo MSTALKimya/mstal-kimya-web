@@ -8,6 +8,27 @@
   <link rel="icon" href="../images/logo.svg">
 </head>
 <body>
+  <script>window.CMS_MANUAL_INIT = true;</script>
   <script src="https://unpkg.com/decap-cms@3.16.3/dist/decap-cms.js"></script>
+  <script>
+    // Giriş, sitenin kendi /api/auth adresi üzerinden yapılır (functions/api klasörü).
+    // Adres otomatik alındığı için ileride özel alan adı bağlansa da çalışmaya devam eder.
+    CMS.init({
+      config: {
+        backend: {
+          name: "github",
+          repo: "MSTALKimya/mstal-kimya-web",
+          branch: "main",
+          base_url: location.origin,
+          auth_endpoint: "api/auth",
+          commit_messages: {
+            create: "{{collection}} eklendi: {{slug}}",
+            update: "{{collection}} güncellendi: {{slug}}",
+            uploadMedia: "Dosya yüklendi: {{path}}",
+          },
+        },
+      },
+    });
+  </script>
 </body>
 </html>
