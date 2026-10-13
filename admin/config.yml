@@ -4,7 +4,7 @@ logo_url: /images/logo.svg
 
 backend:
   name: github
-  repo: GITHUB_KULLANICI_ADI/mstal-kimya-web   # canlıya alırken güncellenecek
+  repo: MSTALKimya/mstal-kimya-web
   branch: main
   commit_messages:
     create: "{{collection}} eklendi: {{slug}}"
